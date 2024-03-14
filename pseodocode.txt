@@ -1,0 +1,33 @@
+FUNCTION main()
+    daysOfWeek <- ArrayList of Strings
+    temperatures <- ArrayList of Doubles
+    
+    FOR i FROM 1 TO 7
+        PRINT "Enter the day of the week (Monday through Sunday): "
+        day <- READLINE()
+        PRINT "Enter the average temperature for " + day + ": "
+        temperature <- PARSEDOUBLE(READLINE())
+        
+        daysOfWeek.ADD(day)
+        temperatures.ADD(temperature)
+    
+    PRINT "Enter the day of the week or 'week': "
+    input <- READLINE()
+
+    IF input EQUALS "week" THEN
+        sum <- 0
+        FOR i FROM 1 TO daysOfWeek.SIZE()
+            PRINT daysOfWeek.GET(i) + ": " + temperatures.GET(i)
+            sum <- sum + temperatures.GET(i)
+        END FOR
+        average <- sum / temperatures.SIZE()
+        PRINT "Weekly average temperature: " + average
+    ELSE
+        index <- daysOfWeek.INDEXOF(input)
+        IF index NOT EQUAL -1 THEN
+            PRINT daysOfWeek.GET(index) + ": " + temperatures.GET(index)
+        ELSE
+            PRINT "Invalid input"
+        END IF
+    END IF
+END FUNCTION
